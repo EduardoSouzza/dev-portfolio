@@ -5,7 +5,7 @@ export default function ProfileHeader() {
     <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
       <Image
         className="rounded-full border-4 border-blue-500 shadow-xl mb-6"
-        src="/profile.jpg"
+        src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/profile.jpg`}
         alt="Foto de perfil"
         width={120}
         height={120}

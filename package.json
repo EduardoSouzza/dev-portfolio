@@ -5,9 +5,9 @@
   "homepage": "https://EduardoSouzza.github.io/dev-portfolio",
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build && echo > out/.nojekyll",
-    "export": "next export && echo > out/.nojekyll",
+    "build": "set NODE_ENV=production&& next build && echo > out/.nojekyll",
     "deploy": "npm run build && gh-pages -d out",
+    "export": "next export && echo > out/.nojekyll",
     "start": "next start",
     "lint": "next lint"
   },

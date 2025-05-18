@@ -1,21 +1,20 @@
 "use client";
 
-import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
 import Section from "./section";
 import SocialLinks from "./socialLinks";
 import ProfileHeader from "./profileHeader";
 
-export default function Home() {
+const MotionMain = dynamic(() => import("./MotionMain").then(mod => mod.MotionMain), {
+  ssr: false,
+});
+
+export default function HomeClient() {
   return (
     <div className="relative min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white overflow-hidden transition-colors duration-500">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-gray-100 to-white dark:from-blue-950 dark:via-black dark:to-gray-900 opacity-60 backdrop-blur-md z-0 transition-all duration-500" />
 
-      <motion.main
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="relative z-10 max-w-3xl mx-auto px-6 sm:px-8 py-16 space-y-14 font-sans"
-      >
+      <MotionMain>
         <ProfileHeader />
         <SocialLinks />
 
@@ -53,7 +52,7 @@ export default function Home() {
             #TechLead #Java #SpringBoot #Cloud #Microservices #DevOps
           </p>
         </footer>
-      </motion.main>
+      </MotionMain>
     </div>
   );
 }
